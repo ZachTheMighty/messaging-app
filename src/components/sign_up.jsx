@@ -28,7 +28,7 @@ export default function SignUp() {
 
   return (
     <div className="min-h-screen flex justify-center items-center bg-[#f5f9fa]">
-      <div className="w-150 [#fff] px-16 py-8 rounded-md shadow-[0px_17px_20px_0px_rgba(0,0,0,0.1)]">
+      <div className="w-full sm:w-150 [#fff] px-4 sm:px-16 py-8 rounded-md shadow-[0px_17px_20px_0px_rgba(0,0,0,0.1)]">
         <div className="text-purple-900 font-bold text-3xl text-center my-8">
           Sign Up
         </div>
