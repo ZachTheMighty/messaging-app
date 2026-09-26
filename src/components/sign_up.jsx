@@ -33,39 +33,16 @@ export default function SignUp() {
           Sign Up
         </div>
         <form onSubmit={(event) => handleSubmit(event)}>
-          <Input
-            text="firstName"
-            formData={formData}
-            setFormData={setFormData}
-            errors={errors}
-          />
-          <Input
-            text="lastName"
-            formData={formData}
-            setFormData={setFormData}
-            errors={errors}
-          />
-          <Input
-            text="email"
-            type="email"
-            formData={formData}
-            setFormData={setFormData}
-            errors={errors}
-          />
-          <Input
-            text="password"
-            type="password"
-            formData={formData}
-            setFormData={setFormData}
-            errors={errors}
-          />
-          <Input
-            text="confirmPassword"
-            type="password"
-            formData={formData}
-            setFormData={setFormData}
-            errors={errors}
-          />
+          {Object.entries(formData).map((input, index) => (
+            <Input
+              key={index}
+              text={input[0]}
+              type={input[0].includes("word") ? "password" : "text"}
+              formData={formData}
+              setFormData={setFormData}
+              errors={errors}
+            />
+          ))}
           <button className="bg-purple-900 text-white w-full py-3 rounded-md font-bold text-lg hover:bg-purple-700 active:bg-purple-900 mb-4">
             Sign Up
           </button>
