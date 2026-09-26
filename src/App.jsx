@@ -1,3 +1,5 @@
+import SignUp from "./components/sign_up";
+
 export default function App() {
-  return <div className="text-cyan-500">app</div>;
+  return <SignUp />;
 }
