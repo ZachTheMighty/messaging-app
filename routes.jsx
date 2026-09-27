@@ -1,6 +1,7 @@
 import App from "./src/App.jsx";
 import SignUp from "./src/components/sign_up.jsx";
 import Login from "./src/components/log_in.jsx";
+import Dashboard from "./src/components/dashboard.jsx";
 import NotFound from "./src/components/not_found.jsx";
 
 export default [
@@ -15,6 +16,10 @@ export default [
       {
         path: "/sign-up",
         element: <SignUp />,
+      },
+      {
+        path: "/dashboard",
+        element: <Dashboard />,
       },
     ],
   },
