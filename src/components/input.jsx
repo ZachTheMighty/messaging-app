@@ -47,6 +47,9 @@ export default function Input({ text, type, formData, setFormData, errors }) {
                   </li>
                 );
             })}
+          {errors?.status === 401 && errors.path === text && (
+            <li className="text-red-500 font-bold text-xs">{errors.errors}</li>
+          )}
         </ul>
       )}
     </div>

@@ -1,5 +1,4 @@
-import SignUp from "./components/sign_up";
-
+import { Outlet } from "react-router";
 export default function App() {
-  return <SignUp />;
+  return <Outlet />;
 }
