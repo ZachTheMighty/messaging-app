@@ -2,7 +2,14 @@ import { Eye, EyeOff } from "lucide-react";
 import deCamel from "../utils/de_camel.js";
 import { useState } from "react";
 
-export default function Input({ text, type, formData, setFormData, errors }) {
+export default function Input({
+  text,
+  type,
+  formData,
+  setFormData,
+  errors,
+  disabled,
+}) {
   const [showPassword, setShowPassword] = useState(false);
   return (
     <div className="flex flex-col mb-6 gap-1 relative">
@@ -34,7 +41,8 @@ export default function Input({ text, type, formData, setFormData, errors }) {
         onChange={(event) =>
           setFormData({ ...formData, [text]: event.target.value })
         }
-        className="outline outline-black/10 p-4 hover:outline-teal-500 rounded-md focus:outline-2 focus:outline-teal-500"
+        disabled={disabled}
+        className={`outline outline-black/10 p-4 rounded-md ${disabled ? "opacity-50" : "hover:outline-teal-500 focus:outline-2 focus:outline-teal-500"}`}
       />
       {errors !== "s" && (
         <ul className="list-disc mt-3">

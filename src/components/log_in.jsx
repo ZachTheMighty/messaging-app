@@ -1,6 +1,6 @@
 import { useState } from "react";
 import Input from "./input.jsx";
-import { Link } from "react-router";
+import { Link, useNavigate } from "react-router";
 
 export default function Login() {
   const [formData, setFormData] = useState({
@@ -8,10 +8,12 @@ export default function Login() {
     password: "",
   });
 
+  const navigate = useNavigate();
+
   const handleSubmit = async (event) => {
     event.preventDefault();
 
-    const response = await fetch("http://localhost:8080/tokens", {
+    const response = await fetch("https://message-api-264x.onrender.com/tokens", {
       method: "post",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(formData),
@@ -26,12 +28,13 @@ export default function Login() {
       });
     setErrors(null);
     localStorage.setItem("token", data.token);
+    navigate("/dashboard/chats");
   };
 
   const [errors, setErrors] = useState("s");
   return (
     <div className="min-h-screen flex justify-center items-center bg-[#f5f9fa]">
-      <div className="w-full sm:w-150 [#fff] px-4 sm:px-16 py-8 rounded-md shadow-[0px_17px_20px_0px_rgba(0,0,0,0.1)]">
+      <div className="w-full sm:w-150 [#fff] px-4 sm:px-16 py-8 rounded-md shadow-[0px_0px_20px_2px_rgba(0,0,0,0.1)]">
         <div className="text-purple-900 font-bold text-3xl text-center my-8">
           Login
         </div>
